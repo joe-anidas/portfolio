@@ -2,10 +2,11 @@ const Contact = () => {
   const contactInfo = [
     {
       id: 1,
-      icon: '📞',
-      title: 'Phone',
-      content: '+91 9344626239',
-      isLink: false
+      icon: <FaGithub />,
+      title: 'Github',
+      content: 'github.com/JOE-ANIDAS',
+      isLink: true,
+      href: 'https://github.com/JOE-ANIDAS'
     },
     {
       id: 2,
