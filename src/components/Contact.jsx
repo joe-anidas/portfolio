@@ -1,15 +1,9 @@
+import { FaGithub } from 'react-icons/fa';
+
 const Contact = () => {
   const contactInfo = [
     {
       id: 1,
-      icon: <FaGithub />,
-      title: 'Github',
-      content: 'github.com/JOE-ANIDAS',
-      isLink: true,
-      href: 'https://github.com/JOE-ANIDAS'
-    },
-    {
-      id: 2,
       icon: '✉️',
       title: 'Email',
       content: 'joeanidas.26it@licet.ac.in',
@@ -17,21 +11,31 @@ const Contact = () => {
       href: 'mailto:joeanidas.26it@licet.ac.in'
     },
     {
-      id: 3,
-      icon: '📍',
-      title: 'Location',
-      content: 'Chennai, Tamil Nadu, India',
-      isLink: false
+      id: 2,
+      icon: <FaGithub />,
+      title: 'Github',
+      content: 'github.com/JOE-ANIDAS',
+      isLink: true,
+      href: 'https://github.com/JOE-ANIDAS'
     },
+    
     {
-      id: 4,
+      id: 3,
       icon: '💻',
       title: 'LinkedIn',
       content: 'linkedin.com/in/joe-anidas',
       isLink: true,
       href: 'https://www.linkedin.com/in/joe-anidas/',
       target: '_blank'
-    }
+    },
+    {
+      id: 4,
+      icon: '📍',
+      title: 'Location',
+      content: 'Chennai, Tamil Nadu, India',
+      isLink: false
+    },
+    
   ];
 
   return (
