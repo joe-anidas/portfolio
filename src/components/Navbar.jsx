@@ -3,38 +3,64 @@ import { useState, useEffect } from 'react';
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState('about');
 
-  // Function to handle smooth scrolling
-  const handleClick = (id) => {
+  // Custom smooth scroll function with duration control
+  const smoothScroll = (targetId, duration = 500) => {
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    const targetPosition = target.offsetTop - 80; // Adjust for navbar height
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    const animation = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    };
+
+    // Easing function for smooth acceleration/deceleration
+    const easeInOutQuad = (t, b, c, d) => {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
+    };
+
+    requestAnimationFrame(animation);
+  };
+
+  const handleClick = (id, e) => {
+    e.preventDefault();
     setActiveLink(id);
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    smoothScroll(id);
   };
 
   // Effect to detect which section is in view
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'experience', 'projects', 'education', 'contact'];
-      const scrollPosition = window.scrollY + 100; // Adding offset for better detection
+      const sections = ['header', 'about', 'experience', 'projects', 'education', 'contact'];
+      const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-
+          const { offsetTop, offsetHeight } = element;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveLink(section);
+            if (activeLink !== section) {
+              setActiveLink(section);
+            }
             break;
           }
         }
       }
     };
 
-    // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
-    
-    // Clean up
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [activeLink]);
 
   return (
     <nav className="navbar">
@@ -42,11 +68,11 @@ const Navbar = () => {
         <span className="logo-highlight">&lt;</span> Joe Anidas E <span className="logo-highlight">/&gt;</span>
       </h1>
       <ul>
-      <li>
+        <li>
           <a 
             href="#header" 
             className={activeLink === 'header' ? 'nav-active' : ''} 
-            onClick={() => handleClick('header')}
+            onClick={(e) => handleClick('header', e)}
           >
             Home
           </a>
@@ -55,7 +81,7 @@ const Navbar = () => {
           <a 
             href="#about" 
             className={activeLink === 'about' ? 'nav-active' : ''} 
-            onClick={() => handleClick('about')}
+            onClick={(e) => handleClick('about', e)}
           >
             About
           </a>
@@ -64,7 +90,7 @@ const Navbar = () => {
           <a 
             href="#experience" 
             className={activeLink === 'experience' ? 'nav-active' : ''}
-            onClick={() => handleClick('experience')}
+            onClick={(e) => handleClick('experience', e)}
           >
             Experience
           </a>
@@ -73,7 +99,7 @@ const Navbar = () => {
           <a 
             href="#projects" 
             className={activeLink === 'projects' ? 'nav-active' : ''}
-            onClick={() => handleClick('projects')}
+            onClick={(e) => handleClick('projects', e)}
           >
             Projects
           </a>
@@ -82,7 +108,7 @@ const Navbar = () => {
           <a 
             href="#education" 
             className={activeLink === 'education' ? 'nav-active' : ''}
-            onClick={() => handleClick('education')}
+            onClick={(e) => handleClick('education', e)}
           >
             Education
           </a>
@@ -91,7 +117,7 @@ const Navbar = () => {
           <a 
             href="#contact" 
             className={activeLink === 'contact' ? 'nav-active' : ''}
-            onClick={() => handleClick('contact')}
+            onClick={(e) => handleClick('contact', e)}
           >
             Contact
           </a>

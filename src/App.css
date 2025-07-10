@@ -98,7 +98,7 @@ body {
 
 /* Enhanced Navbar Styling */
 .navbar {
-  background-color: rgba(7, 8, 9, 0.9);
+  /* background-color: rgba(7, 8, 9, 0.9); */
   backdrop-filter: blur(10px);
   padding: 1rem 5%;
   position: fixed;
