@@ -5,7 +5,7 @@ const Education = () => {
       degree: 'Bachelor of Technology, Information Technology',
       institution: 'Loyola-ICAM College of Engineering and Technology (LICET), Chennai',
       period: '2022 - 2026',
-      score: '8.38'
+      score: '8.42'
     },
     {
       id: 2,
@@ -19,28 +19,42 @@ const Education = () => {
   const courses = [
     {
       id: 1,
+      title: 'Amazon\'s Full Stack Web Development',
+      provider: 'Coursera'
+    },
+    {
+      id: 2,
       title: 'Master Course in Full Stack Development',
       provider: 'Great Learning'
     },
     {
-      id: 2,
-      title: 'Mastering MEAN Web Development',
-      provider: 'Infosys'
-    },
-    {
       id: 3,
       title: 'MERN: Advanced MERN Development',
-      provider: 'Infosys'
-    },
-    {
+      provider: 'Infosys Springboard'
+    }, {
       id: 4,
-      title: 'OpenWeaver Web Development',
-      provider: 'Workshop - March 2024'
+      title: 'Mastering MEAN Web Development',
+      provider: 'Infosys Springboard'
     },
     {
       id: 5,
+      title: 'Workshop on Mastering Flutter',
+      provider: 'Apr 2025'
+    },
+    {
+      id: 6,
+      title: 'Mastering UI Automation with Selenium',
+      provider: 'Feb 2025'
+    },
+    {
+      id: 7,
       title: 'Mastering AWS Cloud Automation with DevOps Tools',
-      provider: 'Workshop - October 2024'
+      provider: 'Oct 2024'
+    },
+    {
+      id: 8,
+      title: 'OpenWeaver Web Development',
+      provider: 'Mar 2024'
     }
   ];
 
