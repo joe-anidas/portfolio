@@ -388,7 +388,6 @@ body {
 
 /* Enhanced About Section */
 #about {
-  background-color: var(--card-bg);
   position: relative;
   overflow: hidden;
 }
@@ -863,7 +862,6 @@ body {
 
 .contact-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 4rem;
   max-width: var(--max-width);
   margin: 0 auto;

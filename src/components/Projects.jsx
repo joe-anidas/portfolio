@@ -1,44 +1,45 @@
-import ecommerce from "../assets/ecommerce.png";
-import project from "../assets/project.png";
-import sis from "../assets/sis.png";
+import twinai from "../assets/twinai.jpg";
+import antifake from "../assets/antifake.jpg";
+import sis from "../assets/sis.jpg";
 const Projects = () => {
-  const projects = [
+  const projects = [    
     {
-      id: 1,
-      title: 'Web-based Project Analysis Dashboard',
-      description: 'Developed a web-based project analysis dashboard using CodeIgniter 3, PHP, and MySQL. Implemented data visualization, project tracking, and performance analytics for improved decision-making.',
-      technologies: ['CodeIgniter', 'PHP', 'MySQL', 'Charts.js'],
-      links: [
-        {
-          text: 'Github →',
-          url: '#'
-        },
-        {
-          text: 'View Project →',
-          url: '#'
-        }
-      ],
-      imageUrl: project,
-      imageAlt: 'Project Analysis Dashboard'
-    },
-    {
-      id: 2,
-      title: 'Dynamic E-commerce Platform',
-      description: 'Developed a responsive e-commerce website using HTML, CSS, JavaScript and jQuery. Integrated modular components such as a dynamic header, slider, content sections, and footer.',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
-      links: [
-        {
-          text: 'Github →',
-          url: 'https://github.com/joe-anidas/E-Commerce'
-        },
-        {
-          text: 'View Project →',
-          url: 'https://ecommerce-joe.vercel.app/'
-        }
-      ],
-      imageUrl: ecommerce,
-      imageAlt: 'E-commerce Platform'
-    },
+    id: 1,
+    title: 'Anti-Fake [Tamper Proof Certificate Verification]',
+    description: 'Developed a blockchain credential platform using LUKSO Universal Profiles, Solidity, and Hardhat to issue NFT-based academic certificates. Built with Next.js, TypeScript, and Tailwind CSS for the frontend, leveraging IPFS for decentralized storage, enabling instant on-chain verification and eliminating credential fraud.',
+    technologies: ['Next.js', 'TypeScript', 'Solidity', 'Hardhat', 'LUKSO', 'IPFS', 'Tailwind CSS'],
+    links: [
+      {
+        text: 'Github →',
+        url: 'https://github.com/joe-anidas/certificate-verification-dapp'
+      },
+      {
+        text: 'View Project →',
+        url: 'https://lukso-dapp-dusky.vercel.app/'
+      }
+    ],
+    imageUrl: antifake,
+    imageAlt: 'Blockchain Certificate Verification'
+  },
+  {
+    id: 2,
+    title: 'Twin AI',
+    description: 'Built a decentralized AI twin platform using Next.js, Tailwind CSS, Node.js, and Base Sepolia blockchain. Enabled users to create, own, and monetize personalized AI agents via Groq API. Integrated gasless NFT minting, smart wallets, and hybrid IPFS-NFT storage for training data.',
+    technologies: ['Next.js', 'Tailwind CSS', 'Node.js', 'Base Sepolia', 'Groq API', 'IPFS', 'NFT'],
+    links: [
+      {
+        text: 'Github →',
+        url: 'https://github.com/joe-anidas/ai-twin'
+      },
+      {
+        text: 'View Project →',
+        url: 'https://ai-twin-xi.vercel.app/'
+      }
+    ],
+    imageUrl: twinai,
+    imageAlt: 'Decentralized AI Twin Platform'
+  },
+  
     {
       id: 3,
       title: 'Student Information System using MERN Stack',

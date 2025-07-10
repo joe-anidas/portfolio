@@ -1,12 +1,40 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState('about');
 
+  // Function to handle smooth scrolling
   const handleClick = (id) => {
     setActiveLink(id);
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Effect to detect which section is in view
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['about', 'experience', 'projects', 'education', 'contact'];
+      const scrollPosition = window.scrollY + 100; // Adding offset for better detection
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveLink(section);
+            break;
+          }
+        }
+      }
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    
+    // Clean up
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav className="navbar">
